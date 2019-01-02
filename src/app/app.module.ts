@@ -6,11 +6,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ChartComponent } from './chart/chart.component';
+import { TestEsComponent } from './test-es/test-es.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChartComponent
+    ChartComponent,
+    TestEsComponent
   ],
   imports: [
     BrowserModule,

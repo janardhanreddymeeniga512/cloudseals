@@ -1,0 +1,31 @@
+<div *ngIf="status == 'OK'">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav opened mode="side">
+        <img class="img-responsive" src="assets/images/cloudseals.png">
+        <br>
+        <mat-nav-list>
+            <div>
+                <a mat-list-item routerLink='/chart' routerLinkActive="active-list-item" style="color:#ffffff;">
+                    <mat-icon>check_circle</mat-icon>&nbsp;&nbsp;<span style="padding-left:22px; padding-top:7px">Discover</span>
+                </a>
+            </div>
+            <div>
+                <a mat-list-item routerLink='/chart' routerLinkActive="active-list-item" style="color:#ffffff;">
+                    <mat-icon>bar_chart</mat-icon>&nbsp;&nbsp;<span style="padding-left:22px; padding-top:7px">Visualize</span>
+                </a>
+            </div>
+            <div>
+                <a mat-list-item routerLink='/chart' routerLinkActive="active-list-item" style="color:#ffffff;">
+                    <mat-icon>dashboard</mat-icon>&nbsp;&nbsp;<span style="padding-left:22px; padding-top:7px">Dashboard</span>
+                </a>
+            </div>
+            <div>
+                <a mat-list-item routerLink='/chart' routerLinkActive="active-list-item" style="color:#ffffff;">
+                    <mat-icon>timelapse</mat-icon>&nbsp;&nbsp;<span style="padding-left:22px; padding-top:7px">Timelion</span>
+                </a>
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
+</div>

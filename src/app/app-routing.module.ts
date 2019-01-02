@@ -3,9 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { ChartComponent } from 'src/app/chart/chart.component';
+import { TestEsComponent } from 'src/app/test-es/test-es.component';
 
 const routes: Routes = [
-  {path: '', component: ChartComponent},
+  {
+    path: '',            //<---- parent component declared here
+    component: TestEsComponent,
+    children: [                          //<---- child components declared here
+        {
+            path:'chart',
+            component: ChartComponent
+        },
+    ]
+},
+{ path: '',   redirectTo: '/chart', pathMatch: 'full' },
 ];
 
 @NgModule({
