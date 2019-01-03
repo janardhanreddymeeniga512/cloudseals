@@ -35,4 +35,38 @@ export class ElasticsearchService {
       body: 'hello grokonez!'
     });
   }
+
+  private queryalldocs = {
+    'query': {
+      'match_all': {}
+    }
+  };
+ 
+  getAllDocumentsWithScroll(_index, _type, _size): any {
+    return this.client.search({
+      index: _index,
+      type: _type,
+      // Set to 1 minute because we are calling right back
+      // (Elasticsearch keeps the search context open for another 1m)
+      scroll: '1m',
+      filterPath: ['hits.hits._source', 'hits.total', '_scroll_id'],
+      body: {
+        'size': _size,
+        'query': {
+          'match_all': {}
+        },
+        'sort': [
+          { '_uid': { 'order': 'asc' } }
+        ]
+      }
+    });
+  }
+
+  getNextPage(scroll_id): any {
+    return this.client.scroll({
+      scrollId: scroll_id,
+      scroll: '1m',
+      filterPath: ['hits.hits._source', 'hits.total', '_scroll_id']
+    });
+  }
 }

@@ -1,0 +1,8 @@
+<div *ngFor="let customerSource of customerSources">
+    {{customerSource._source | json}}
+    <br>
+    <br>
+</div>
+
+<h3>{{notice}}</h3>
+<button (click)="showNextPage()" *ngIf="haveNextPage" class="btn btn-primary">Next</button>

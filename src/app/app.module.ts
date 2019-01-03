@@ -7,12 +7,14 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ChartComponent } from './chart/chart.component';
 import { TestEsComponent } from './test-es/test-es.component';
+import { DiscoverComponent } from './discover/discover.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChartComponent,
-    TestEsComponent
+    TestEsComponent,
+    DiscoverComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from 'src/app/app.component';
 import { ChartComponent } from 'src/app/chart/chart.component';
 import { TestEsComponent } from 'src/app/test-es/test-es.component';
+import { DiscoverComponent } from 'src/app/discover/discover.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
             path:'chart',
             component: ChartComponent
         },
+        {
+          path:'discover',
+          component: DiscoverComponent
+      },
     ]
 },
 { path: '',   redirectTo: '/chart', pathMatch: 'full' },
