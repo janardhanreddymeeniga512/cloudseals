@@ -1,8 +1,21 @@
-<div *ngFor="let customerSource of customerSources">
-    {{customerSource._source | json}}
-    <br>
-    <br>
-</div>
-
-<h3>{{notice}}</h3>
-<button (click)="showNextPage()" *ngIf="haveNextPage" class="btn btn-primary">Next</button>
+<mat-toolbar>Hits 750</mat-toolbar>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+        <mat-form-field>
+            <mat-select [(ngModel)]="index" (selectionChange)="getIndexData($event)" value='.Kibana_1' required>
+              <mat-option value=".Kibana_1">.kibana_1</mat-option>
+              <mat-option value="filebeat-*">filebeat-*</mat-option>
+              <mat-option value="metricbeat-*">metricbeat-*</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-drawer>
+    <mat-drawer-content>
+        <div *ngFor="let customerSource of customerSources">
+            {{customerSource._source | json}}
+            <br>
+            <br>
+        </div>
+        <h3>{{notice}}</h3>
+        <button (click)="showNextPage()" *ngIf="haveNextPage" class="btn btn-primary">Next</button>
+    </mat-drawer-content>
+  </mat-drawer-container>

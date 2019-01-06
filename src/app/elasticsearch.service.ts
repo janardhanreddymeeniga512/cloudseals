@@ -62,6 +62,16 @@ export class ElasticsearchService {
     });
   }
 
+  getIndexCount(_index): any {
+    return this.client.search({
+      index: _index,
+      type: "doc",
+      body: this.queryalldocs,
+      filterPath: ['hits.hits._source']
+    });
+  }
+
+
   getNextPage(scroll_id): any {
     return this.client.scroll({
       scrollId: scroll_id,

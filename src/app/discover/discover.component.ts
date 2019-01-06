@@ -11,6 +11,7 @@ export class DiscoverComponent implements OnInit {
   private static readonly TYPE = 'doc';
   private static readonly SIZE = 3;
  
+  indexCount: any;
   customerSources: any;
   haveNextPage = false;
   scrollID = '';
@@ -40,6 +41,16 @@ export class DiscoverComponent implements OnInit {
         }).then(() => {
           console.log('Show Customer Completed!');
         });
+  }
+
+  getIndexData(event){
+    console.log(event.value)
+    this.es.getIndexCount(event.value).then(
+      response => {
+        this.indexCount = response.length
+        console.log(this.indexCount)
+      }
+    )
   }
 
   showNextPage() {
